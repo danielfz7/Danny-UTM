@@ -1,0 +1,78 @@
+import java.util.ArrayList;
+
+interface ImpactoEcologico {
+    double obtenerImpactoEcologico();
+}
+
+class Edificio implements ImpactoEcologico {
+    private double toneladasCarbono;
+    private String identificacion;
+
+    public Edificio(double toneladasCarbono, String identificacion) {
+        this.toneladasCarbono = toneladasCarbono;
+        this.identificacion = identificacion;
+    }
+
+    @Override
+    public double obtenerImpactoEcologico() {
+        return toneladasCarbono;
+    }
+
+    @Override
+    public String toString() {
+        return "Edificio " + identificacion;
+    }
+}
+
+class Auto implements ImpactoEcologico {
+    private double toneladasCarbono;
+    private String identificacion;
+
+    public Auto(double toneladasCarbono, String identificacion) {
+        this.toneladasCarbono = toneladasCarbono;
+        this.identificacion = identificacion;
+    }
+
+    @Override
+    public double obtenerImpactoEcologico() {
+        return toneladasCarbono;
+    }
+
+    @Override
+    public String toString() {
+        return "Auto " + identificacion;
+    }
+}
+
+class Bicicleta implements ImpactoEcologico {
+    private double toneladasCarbono;
+    private String identificacion;
+
+    public Bicicleta(double toneladasCarbono, String identificacion) {
+        this.toneladasCarbono = toneladasCarbono;
+        this.identificacion = identificacion;
+    }
+
+    @Override
+    public double obtenerImpactoEcologico() {
+        return toneladasCarbono;
+    }
+
+    @Override
+    public String toString() {
+        return "Bicicleta " + identificacion;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<ImpactoEcologico> objetos = new ArrayList<>();
+        objetos.add(new Edificio(500, "1"));
+        objetos.add(new Auto(300, "2"));
+        objetos.add(new Bicicleta(50, "3"));
+
+        for (ImpactoEcologico objeto : objetos) {
+            System.out.println(objeto + " tiene un impacto ecológico de " + objeto.obtenerImpactoEcologico() + " toneladas de carbono.");
+        }
+    }
+}
